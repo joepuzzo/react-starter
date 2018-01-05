@@ -19,7 +19,10 @@ import {
 /* You always want to define your initial state ( state when app first loads) */
 const INITIAL_STATE = {
   something: 0,
-  authenticated: false
+  authenticated: false,
+  user: null,
+  fetchingCustomer: false,
+  customer: { name: "FooBarBaz" }
 };
 
 /**
@@ -37,7 +40,8 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         authenticated: true,
-        role: action.role
+        role: action.role,
+        user: action.role === 'role1' ? { customerId: null } :  { customerId: '1' }
       };
     default:
       return state;

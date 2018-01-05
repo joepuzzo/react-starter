@@ -1,24 +1,21 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Login from '../components/Login';
+import Customer from '../components/Customer';
 
-import { login } from '../redux/actions';
+import { fetchCustomer } from '../redux/actions';
 
 const mapDispatchToProps = dispatch => ({
-  login1: () => {
-    dispatch(login('role1'));
+  fetchCustomer: (customerId) => {
+    dispatch(fetchCustomer(customerId));
   },
-  login2: () => {
-    dispatch(login('role2'));
-  }
 });
 
 const mapStateToProps = state => ({
-  authenticated: state.authenticated
+  customer: state.customer
 });
 
 export default withRouter( connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login));
+)(Customer));

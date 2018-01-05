@@ -28,3 +28,19 @@ export function login( role ){
     role
   }
 }
+
+export const FETCH_CUSTOMER = 'FETCH_CUSTOMER';
+export function fetchCustomer( customerId ){
+  return {
+    type: FETCH_CUSTOMER,
+    customerId
+  }
+}
+//
+// export const LOGIN = 'LOGIN';
+// export function login( role ){
+//   return {
+//     type: LOGIN,
+//     role
+//   }
+// }
