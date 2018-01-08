@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import CustomerRoutes from '../routes/CustomerRoutes';
 
 class Customer extends Component {
 
   componentDidMount(){
+    console.log("HERE!!!");
     const {
       fetchCustomer,
       match
@@ -21,8 +25,20 @@ class Customer extends Component {
     } else if( customer ) {
       return (
         <div>
-          <h1>Customer Details</h1>
+          <h1>Customer</h1>
           <h2>Customer name: {customer.name}</h2>
+          <div>
+            <h3>CustomerPages</h3>
+            <ul>
+              <li>
+                <Link to={`${this.props.match.url}/details`}>Details</Link>
+              </li>
+              <li>
+                <Link to={`${this.props.match.url}/details`}>Claims</Link>
+              </li>
+            </ul>
+          </div>
+          <CustomerRoutes />
         </div>
       );
     } else {

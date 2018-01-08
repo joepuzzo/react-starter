@@ -31,14 +31,14 @@ const CustomerRoute = ({ component: Component, user, role, ...rest }) => (
   }}/>
 )
 
-const Routes = ({role}) => (
+const Routes = ({role, user}) => (
   <Switch>
     <Route path="/home" component={Home} />
     <Role1OnlyRoute path="/foo" component={()=>(<h1>Foo</h1>)} role={role} />
     <Role1OnlyRoute path="/bar" component={()=>(<h1>Bar</h1>)} role={role} />
     <Role2OnlyRoute path="/baz" component={()=>(<h1>Baz</h1>)} role={role} />
     <Role1OnlyRoute exact path="/customers" component={ChooseCustomer} role={role}/>
-    <CustomerRoute path="/customers/:customerId" component={Customer} role={role}/>
+    <CustomerRoute path="/customers/:customerId" component={Customer} role={role} user={user}/>
     <Redirect to="/home"/>
   </Switch>
 );

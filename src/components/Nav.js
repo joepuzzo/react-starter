@@ -36,7 +36,7 @@ const Role2Nav = ({user}) => (
           <Link to="/baz">Baz</Link>
         </li>
         <li>
-          <Link to={`/customers/:${user.customerId}`}>Customer Details</Link>
+          <Link to={`/customers/${user.customerId}`}>Customer</Link>
         </li>
       </ul>
     </nav>

@@ -4,7 +4,7 @@ class Role2 extends Component {
   render(){
     return(
       <div>
-        <h1>Role2</h1>
+        <h1>Home for role2</h1>
       </div>
     );
   }

@@ -41,7 +41,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         authenticated: true,
         role: action.role,
-        user: action.role === 'role1' ? { customerId: null } :  { customerId: '1' }
+        user: action.role === 'role1' ? { customerId: null } :  { customerId: 'customer1' }
       };
     default:
       return state;
