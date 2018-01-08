@@ -15,7 +15,7 @@ const Role1Nav = () => (
           <Link to="/bar">Bar</Link>
         </li>
         <li>
-          <Link to="/baz">Baz</Link>
+          <Link to="/example">Example</Link>
         </li>
         <li>
           <Link to="/customers">Choose Customer</Link>
@@ -34,6 +34,9 @@ const Role2Nav = ({user}) => (
         </li>
         <li>
           <Link to="/baz">Baz</Link>
+        </li>
+        <li>
+          <Link to="/example">Example</Link>
         </li>
         <li>
           <Link to={`/customers/${user.customerId}`}>Customer</Link>

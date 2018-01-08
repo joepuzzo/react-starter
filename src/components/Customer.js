@@ -6,7 +6,7 @@ import CustomerRoutes from '../routes/CustomerRoutes';
 class Customer extends Component {
 
   componentDidMount(){
-    console.log("HERE!!!");
+    console.log("Fetching customer with customerId:", this.props.match.params.customerId );
     const {
       fetchCustomer,
       match
@@ -34,7 +34,7 @@ class Customer extends Component {
                 <Link to={`${this.props.match.url}/details`}>Details</Link>
               </li>
               <li>
-                <Link to={`${this.props.match.url}/details`}>Claims</Link>
+                <Link to={`${this.props.match.url}/claims`}>Claims</Link>
               </li>
             </ul>
           </div>
