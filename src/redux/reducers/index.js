@@ -13,7 +13,8 @@
 /* We import any actions that we need to switch on here! */
 import {
   DO_SOMETHING,
-  LOGIN
+  LOGIN,
+  LOGOUT
 } from '../actions';
 
 /* You always want to define your initial state ( state when app first loads) */
@@ -42,6 +43,13 @@ export default (state = INITIAL_STATE, action) => {
         authenticated: true,
         role: action.role,
         user: action.role === 'role1' ? { customerId: null } :  { customerId: 'customer1' }
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        authenticated: false,
+        role: null,
+        user: null
       };
     default:
       return state;

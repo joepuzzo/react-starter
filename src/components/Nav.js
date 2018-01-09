@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Role1Nav = () => (
+const Role1Nav = ({logout}) => (
   <div>
     <nav>
       <ul>
@@ -20,12 +20,15 @@ const Role1Nav = () => (
         <li>
           <Link to="/customers">Choose Customer</Link>
         </li>
+        <li>
+          <Link to="/" onClick={logout}>Logout</Link>
+        </li>
       </ul>
     </nav>
   </div>
 );
 
-const Role2Nav = ({user}) => (
+const Role2Nav = ({logout, user}) => (
   <div>
     <nav>
       <ul>
@@ -40,6 +43,9 @@ const Role2Nav = ({user}) => (
         </li>
         <li>
           <Link to={`/customers/${user.customerId}`}>Customer</Link>
+        </li>
+        <li>
+          <Link to="/" onClick={logout}>Logout</Link>
         </li>
       </ul>
     </nav>
@@ -59,13 +65,13 @@ const PublicNav = () => (
   </nav>
 );
 
-const Nav = ({authenticated, role, user}) => {
+const Nav = ({authenticated, role, user, logout}) => {
   if( !authenticated ){
     return ( <PublicNav /> );
   } else if( role === 'role1' ){
-    return ( <Role1Nav /> );
+    return ( <Role1Nav logout={logout}/> );
   } else if ( role === 'role2' ){
-    return ( <Role2Nav user={user} /> );
+    return ( <Role2Nav logout={logout} user={user} /> );
   } else {
     return <span>Error user must have a role.</span>
   }

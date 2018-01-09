@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 
 import Nav from '../components/Nav';
 
-//import { logout } from '../redux/actions';
+import { logout } from '../redux/actions';
 
-// const mapDispatchToProps = dispatch => ({
-//   logout: () => {
-//     dispatch(logout());
-//   }
-// });
+const mapDispatchToProps = dispatch => ({
+  logout: () => {
+    dispatch(logout());
+  }
+});
 
 const mapStateToProps = state => ({
   role: state.role,
@@ -18,5 +18,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  //mapDispatchToProps
+  mapDispatchToProps
 )(Nav);

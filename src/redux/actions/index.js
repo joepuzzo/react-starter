@@ -36,11 +36,10 @@ export function fetchCustomer( customerId ){
     customerId
   }
 }
-//
-// export const LOGIN = 'LOGIN';
-// export function login( role ){
-//   return {
-//     type: LOGIN,
-//     role
-//   }
-// }
+
+export const LOGOUT = 'LOGOUT';
+export function logout(){
+  return {
+    type: LOGOUT
+  }
+}

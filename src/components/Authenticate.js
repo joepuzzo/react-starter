@@ -9,6 +9,7 @@ const Authenticate = () => (
   <Auth render={({authenticated})=>(
     <div>
       <Nav />
+      <hr />
       { authenticated ? <Private /> : <Public /> }
     </div>
   )}/>
