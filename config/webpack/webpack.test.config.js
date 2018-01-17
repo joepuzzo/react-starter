@@ -22,5 +22,10 @@ module.exports = {
         loader: 'url-loader',
       }
     ],
+  }, 
+  resolve: {
+    alias: {
+      config: path.join(__dirname, '..', 'env', 'test.config.js')
+    }
   }
 };

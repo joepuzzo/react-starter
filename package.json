@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open 'Google Chrome' --config ./config/webpack/webpack.dev.config.js",
-    "test": "NODE_ENV=test mocha-webpack --exit --opts test/mocha-webpack.opts"
+    "test": "NODE_ENV=test mocha-webpack --exit --opts test/mocha-webpack.opts",
+    "build": "webpack --config ./config/webpack/webpack.prod.config.js -p",
+    "build:docker": "docker build -t joepuzzo/react-starter .",
+    "start:docker": "docker run -p 8000:80 -p 8443:443 -e env=dev -t -i joepuzzo/react-starter"
   },
   "author": "joepuzzo",
   "license": "ISC",
@@ -29,6 +32,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
+    "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",

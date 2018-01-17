@@ -1,4 +1,5 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -13,26 +14,16 @@ const configureHTMLWebpackPlugin = () => {
 
 // The actual webpack configuration object
 module.exports = {
-  // Turns on source maps so we can get real line numbers when errors occcur!
-  devtool: 'inline-source-map',
   // Defines where webpack start to load
   entry: [
-    // React Hot Loaders patch ( only for dev )
-    'react-hot-loader/patch',
     // Path to the apps entrypoint
     path.resolve(__dirname, '../../src/index.js'),
   ],
   // Defines where webpack will output the bundled file
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, '../../src'),
+		filename: 'transformed.[hash].js',
+    path: path.join(__dirname, '../../build'),
     publicPath: '/'
-  },
-  // Configuration for the webpack dev server ( only for dev )
-  devServer: {
-    contentBase: './src',
-    port: 4000,
-    historyApiFallback: true
   },
   /**
    *
@@ -68,8 +59,20 @@ module.exports = {
   // Webpack plugins
   plugins: [
     // This is where we call the plugin we defined above
-    configureHTMLWebpackPlugin()
-  ], 
+    configureHTMLWebpackPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: 'config/env/dev.config.js'
+      },
+      {
+        from: 'config/env/np.config.js'
+      },
+      {
+        from: 'config/env/prod.config.js'
+      }],
+    { flatten: true }
+    )
+  ],
 	// Aliases are used so you can do things like import Config from 'config';
   resolve: {
     alias: {
