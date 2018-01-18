@@ -62,18 +62,17 @@ module.exports = {
         test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)|\.png($|\?)|\.jpg($|\?)/,
         loader: 'url-loader',
       },
-
     ]
   },
   // Webpack plugins
   plugins: [
     // This is where we call the plugin we defined above
     configureHTMLWebpackPlugin()
-  ], 
+  ],
 	// Aliases are used so you can do things like import Config from 'config';
   resolve: {
     alias: {
-			// This alias allows us to access the env specific config 
+			// This alias allows us to access the env specific config
       config: path.join(__dirname, '..', 'env', 'config.js')
     }
   }
