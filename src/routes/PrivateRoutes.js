@@ -38,7 +38,6 @@ const Routes = ({role, user}) => (
     <Route path="/example" component={Example} />
     <Role1OnlyRoute path="/foo" component={()=>(<h1>Foo</h1>)} role={role} />
     <Role1OnlyRoute path="/bar" component={()=>(<h1>Bar</h1>)} role={role} />
-    <Role2OnlyRoute path="/baz" component={()=>(<h1>Baz</h1>)} role={role} />
     <Role1OnlyRoute exact path="/customers" component={ChooseCustomer} role={role}/>
     <CustomerRoute path="/customers/:customerId" component={Customer} role={role} user={user}/>
     <Redirect to="/home"/>

@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
-// Will automagically inject the output file 'bundle.js' into the index.html
+// Will automagically inject the output file 'transform.js' into the index.html
 const configureHTMLWebpackPlugin = () => {
   return new HTMLWebpackPlugin({
     template: path.join(__dirname, '../../src/index.html'),
@@ -76,7 +76,7 @@ module.exports = {
 	// Aliases are used so you can do things like import Config from 'config';
   resolve: {
     alias: {
-			// This alias allows us to access the env specific config 
+			// This alias allows us to access the env specific config
       config: path.join(__dirname, '..', 'env', 'config.js')
     }
   }
